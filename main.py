@@ -1,5 +1,5 @@
 from database import Db
-import data
+from data import Data
 
 
 def main():
@@ -8,7 +8,10 @@ def main():
     :return:
     """
     # Db(["test.json"]).read("test.json")
-    data.get_all_files(r"testDataDir/accounts")
+    data = Data("testDataDir/accounts")
+    data.load()
+    data.pre_process()
+    data.query(account_number='test')
 
 
 if __name__ == '__main__':
